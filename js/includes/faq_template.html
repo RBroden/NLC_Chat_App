@@ -1,0 +1,12 @@
+<div class="panel-heading" role="tab" id="accordion{{ $parent.$index }}heading{{ $index }}">
+    <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion{{ $parent.$index }}" href="#accordion{{ $parent.$index }}collapse{{ $index }}" aria-expanded="false" aria-controls="accordion{{ $parent.$index }}collapse{{ $index }}">
+            {{ faq.question }}
+        </a>
+    </h4>
+</div>
+<div id="accordion{{ $parent.$index }}collapse{{ $index }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="accordion{{ $parent.$index }}heading{{ $index }}">
+    <div class="panel-body">
+        <div ng-include="faq.getAnswer()"></div>
+    </div>
+</div>

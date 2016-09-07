@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Hello World!</title>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/angular.min.js"></script>
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+   <body ng-app="nlsChatApp" ng-controller="friendsListCtrl">
+      <div id="viewLogin" ng-show="!loggedIn">
+         <form ng-submit="login()">
+            <div>
+               <label>Username</label>
+               <input type="text" id="formUser" name="user">
+            </div>
+            <div>
+               <label>Password</label>
+               <input type="password" id="formPassword" name="password">
+            </div>
+            <div>
+               <button>Login</button>
+            </div>
+         </form>
+      </div>
+      <div ng-show="loggedIn">
+         <h1>Friends List</h1>
+         <p>
+            ID: {{ user._id }}<br>
+            Name: {{ user.name }}
+         </p>
+         <ul>
+            <li
+            ng-repeat="friend in friendsList"
+            ng-class="friend.online ? 'online' : 'offline'"
+            ng-click="msgFriend(friend._id)"
+            >
+               {{ friend.name }}
+               <span
+               ng-show="friend.online"
+               ng-class="friend.avail ? 'present' : 'away'"
+               ></span>
+            </li>
+         </ul>
+      </div>
+      <div id="admin">
+         <form ng-submit="addUser()">
+            <div>
+               <label>Name</label>
+               <input type="text" id="addName">
+            </div>
+            <div>
+               <label>Email</label>
+               <input type="text" id="addEmail">
+            </div>
+            <div>
+               <label>Password</label>
+               <input type="text" id="addPassword">
+            </div>
+            <div>
+               <label>Allowed</label>
+               <input type="checkbox" ng-model="addAllowed">
+            </div>
+            <div>
+               <label>Admin</label>
+               <input type="checkbox" ng-model="addAdmin">
+            </div>
+            <div>
+               <button>Add User</button>
+            </div>
+         </form>
+      </div>
+   </body>
+
+   <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+   </script>
+</html>

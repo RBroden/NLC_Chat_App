@@ -1,0 +1,77 @@
+body{
+}
+
+#viewLogin{
+   width:400px;
+   height:800px;
+   padding:50px 0;
+   color:#fff;
+   text-align: center;
+   background:#3cf;
+}
+
+input[type=text], input[type=password]{
+   color:#333;
+   border:0px;
+   border-radius:10px;
+   padding:10px;
+}
+
+ul li{
+  position: relative;
+  list-style-type: none;
+  line-height: 24px;
+  margin-left: 25px;
+}
+
+.online {
+  color: #333;
+}
+
+.offline {
+  color: #ccc;
+}
+
+.online span.away {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: -25px;
+  line-height: 25px;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background: #ee0;
+}
+
+.online span.present {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: -25px;
+  line-height: 25px;
+  border-radius: 100%;
+  width: 15px;
+  height: 15px;
+  background: #0e0;
+}
+
+.yourMsg{
+  clear: both;
+  display: inline-block;
+  float: right;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  background: #0cf;
+}
+
+.otherMsg{
+  clear: both;
+  display: inline-block;
+  float: left;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  background: #999;
+}
