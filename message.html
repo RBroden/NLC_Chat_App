@@ -1,20 +1,41 @@
-<h1 id="header">Messages</h1>
-<p id="user"></p>
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Hello World!</title>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/angular.min.js"></script>
+      <link rel="stylesheet" href="css/bootstrap.min.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+   <body ng-app="nlsChatApp" ng-controller="messagesCtrl">
+      <h1 id="header">Messages</h1>
+      <p id="user"></p>
+      <p>{{ 3 + 5 }}</p>
+
+      <script>
 
 
-<script>
+      function getParameterByName(name, url) {
+          if (!url) url = window.location.href;
+          name = name.replace(/[\[\]]/g, "\\$&");
+          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+              results = regex.exec(url);
+          if (!results) return null;
+          if (!results[2]) return '';
+          return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
 
+      document.getElementById('header').innerHTML = getParameterByName('friendID');
+      document.getElementById('user').innerHTML = getParameterByName('userID');
+      </script>
+   </body>
 
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-document.getElementById('header').innerHTML = getParameterByName('friendID');
-document.getElementById('user').innerHTML = getParameterByName('userID');
-</script>
+   <script>
+      // You can also require other files to run in this process
+      require('./messages.js')
+   </script>
+</html>
