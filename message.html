@@ -12,26 +12,14 @@
       <link rel="stylesheet" href="css/style.css" />
    </head>
    <body ng-app="nlsChatApp" ng-controller="messagesCtrl">
-      <h1 id="header">Messages</h1>
-      <p id="user"></p>
-      <p>{{ 3 + 5 }}</p>
-
-      <script>
-
-
-      function getParameterByName(name, url) {
-          if (!url) url = window.location.href;
-          name = name.replace(/[\[\]]/g, "\\$&");
-          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-              results = regex.exec(url);
-          if (!results) return null;
-          if (!results[2]) return '';
-          return decodeURIComponent(results[2].replace(/\+/g, " "));
-      }
-
-      document.getElementById('header').innerHTML = getParameterByName('friendID');
-      document.getElementById('user').innerHTML = getParameterByName('userID');
-      </script>
+      <!-- output messages -->
+      <form ng-submit="sendMessage()">
+        <div>
+          <label>Message</label>
+          <input ng-model="message" type="text">
+          <button>Send</button>
+        </div>
+      </form>
    </body>
 
    <script>
